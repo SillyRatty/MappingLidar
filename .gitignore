@@ -1,0 +1,10 @@
+# STM32CubeIDE generated files and build artifacts
+.metadata/
+.settings/
+Debug/
+Release/
+*.launch
+*.log
+.project
+.cproject
+.mxproject
