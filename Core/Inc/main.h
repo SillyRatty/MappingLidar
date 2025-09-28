@@ -61,6 +61,8 @@ void Error_Handler(void);
 #define LED_GPIO_Port GPIOC
 #define XSHUT_Pin GPIO_PIN_15
 #define XSHUT_GPIO_Port GPIOA
+#define MPU_INTERRUPT_Pin GPIO_PIN_8
+#define MPU_INTERRUPT_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 
