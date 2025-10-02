@@ -54,10 +54,19 @@ void VL53L0XHandler::setDeviceRangingProfile(rangingProfiles_t rangingProfile){
     }
 }
 
-void VL53L0XHandler::readDistance_mm(){
+uint16_t VL53L0XHandler::readDistance_mm(){
     if(!this->initialized){
-        return;
+        return 0xFF;
     }
+
+    VL53L0X_Error status = VL53L0X_PerformSingleRangingMeasurement(&this->apiDev, &this->apiMeasurement);
+    if(status != VL53L0X_ERROR_NONE){
+        return 0xFF;
+    }
+    if(this->apiMeasurement.RangeStatus != 0){ // medicao invalida
+        return 0xFF;
+    }
+    return this->apiMeasurement.RangeMilliMeter;
 }
 
 bool VL53L0XHandler::apiInit(){

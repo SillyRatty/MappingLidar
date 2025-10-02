@@ -47,7 +47,7 @@ class VL53L0XHandler{
         void setDeviceAddress(uint8_t deviceAddress);
         void setDeviceRangingMode(rangingModes_t rangingMode);
         void setDeviceRangingProfile(rangingProfiles_t rangingProfile);
-        void readDistance_mm();
+        uint16_t readDistance_mm();
     private:
         bool initialized = false;
         VL53L0X_Dev_t apiDev;
