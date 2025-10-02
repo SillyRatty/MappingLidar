@@ -25,6 +25,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "cppWrapper.hpp"
+#include "vl53l0x_api.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,7 +46,9 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
+VL53L0X_Dev_t vl;
+VL53L0X_DEV vlDev = &vl;
+VL53L0X_RangingMeasurementData_t measure;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -91,7 +94,6 @@ int main(void)
   MX_I2C1_Init();
   MX_TIM10_Init();
   /* USER CODE BEGIN 2 */
-    HAL_GPIO_WritePin(XSHUT_GPIO_Port, XSHUT_Pin, GPIO_PIN_SET);
     cLoop();
   /* USER CODE END 2 */
 

@@ -6,13 +6,13 @@
  */
 
 #include "app.hpp"
-#include "VL53L0X/VL53L0X.hpp"
 #include "MPU6050/MPU6050.hpp"
+#include "VL53L0X/VL53L0XHandler.hpp"
 
 //#define LONG_RANGE
 #define HIGH_SPEED
 
-VL53L0X distanceSensor(&hi2c1);
+VL53L0XHandler distanceSensor(&hi2c1, XSHUT_GPIO_Port, XSHUT_Pin);
 MPU6050 gyroscope;
 
 void APP_Init(void){
